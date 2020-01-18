@@ -1,7 +1,7 @@
 let findZero = function(start)
 {
     let result = []
-    if(start === 2)
+    if(start === 0)
         result = result.concat(start)
     else if (typeof(start)==='object')
         for (let i = 0; i < start.length; i++)
