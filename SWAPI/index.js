@@ -29,6 +29,13 @@ let createTable = function(elements)
                 td.appendChild(getList(element[attribute]))
             else
                 td.innerText = element[attribute]
+            if (attribute === 'homeworld')
+            {
+                td.style.cursor = 'pointer'
+                td.addEventListener('click',(e) =>{
+                    getElements(e.target.innerText)
+                },false)
+            }
             tr.appendChild(td)
         }
         table.appendChild(tr)
