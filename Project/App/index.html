@@ -6,7 +6,49 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    Test
+    <div class="add-book">
+    <form>
+        <div class="add-first-half">
+            <h1>Add a book</h1>
+            <div class="add-labels">
+                <label for="author">1 Author:</label>
+                <label for="title">2 Title:</label>
+            </div>
+            <div class="add-inputs">
+                <input type="text" name="author" id="author">
+                <input type="text" name="title" id="title">
+            </div>
+        </div>
+        <div class="add-second half">
+            <h2>Genre</h2>
+            <div class="add-checkbox">
+                <input type="checkbox" name="comedy" id="comedy">
+                <input type="checkbox" name="sci-fi" id="sci-fi">
+                <input type="checkbox" name="drama" id="drama">
+            </div>
+            <div class="add-checkbox-labels">
+                <label for="comedy">Comedy</label>
+                <label for="sci-fi">Sci-fi</label>
+                <label for="drama">Drama</label>
+            </div>
+            <div class="add-btn-container">
+                <button>Add</button>
+            </div>
+        </div>
+    </form>
+</div>
+    <div class="search-book">
+        <div class="search-label"><h1>search By</h1></div>
+        <div class="dropdown">
+            <select name="search-by" id="search-by">
+                <option value="Author">Author Name</option>
+                <option value="Title">Title</option>
+            </select>
+        </div>
+        <div class="input-search"><input type="text"></div>
+        <div class="search-button-container"><button>Search</button></div>
+    </div>
+    <div class="display-books"></div>
     <script src="scripts/script.js"></script>
 </body>
 </html>

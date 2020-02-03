@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.add-book{
+    border: 1px solid black;
+    height: 100px;
+    width: 100%;
+}
+.add-book>form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+form>div{
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: wrap row;
+    align-items: center;
+    justify-content: center;
+}
+.add-labels
+{
+    flex-basis: 40%;
+}
+.add-labels>label{
+    text-align: right;
+    display: block;
+    padding-right: 10px;
+}
+.add-inputs{
+    flex-basis: 60%;
+}
+h1{
+    flex-basis: 70%;
+}
+h2{
+    flex-basis: 100%;
+    text-align: center;
+}
+.add-checkbox{
+    margin-left: 100px;
+    flex-basis: 10%;
+}
+.add-checkbox>input{
+    display: block;
+    margin-top: 6px;
+}
+.add-checkbox-labels{
+    flex-basis: 40%;
+}
+.add-checkbox-labels>label{
+    display: block;
+    padding-left: 5px;
+}
+.add-btn-container{
+    flex-basis: 20%;
+}
