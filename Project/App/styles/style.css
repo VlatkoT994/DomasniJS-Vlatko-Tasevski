@@ -1,61 +1,78 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.add-book{
-    border: 1px solid black;
-    height: 100px;
-    width: 100%;
+.add-book {
+  height: 100px;
+  border: 1px solid black;
 }
-.add-book>form{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
-form>div{
-    flex-basis: 50%;
-    display: flex;
-    flex-flow: wrap row;
-    align-items: center;
-    justify-content: center;
+.add-first-half,
+.add-second-half {
+  flex-basis: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.add-labels
-{
-    flex-basis: 40%;
+h2 {
+  text-align: center;
+  flex-basis: 70%;
+  font-size: 26px;
+  justify-self: end;
 }
-.add-labels>label{
-    text-align: right;
-    display: block;
-    padding-right: 10px;
+.add-first-half input {
+  margin-left: 20px;
 }
-.add-inputs{
-    flex-basis: 60%;
+.add-first-half > div {
+  display: flex;
+  flex-basis: 60%;
+  justify-content: flex-end;
+  margin-right: 30%;
 }
-h1{
-    flex-basis: 70%;
+.add-checkbox {
+  flex-basis: 60%;
+  justify-content: center;
+  align-items: center;
 }
-h2{
-    flex-basis: 100%;
-    text-align: center;
+.add-checkbox > div {
+  display: flex;
+  align-items: center;
 }
-.add-checkbox{
-    margin-left: 100px;
-    flex-basis: 10%;
+.add-book button {
+  height: 40px;
+  width: 40px;
+  margin-bottom: 25;
+  background-color: rgb(44, 226, 28);
+  border-color: green;
+  font-size: 30px;
 }
-.add-checkbox>input{
-    display: block;
-    margin-top: 6px;
+.search-book {
+  border-bottom: 1px solid black;
+  height: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.add-checkbox-labels{
-    flex-basis: 40%;
+.search-book > div {
+  margin: 0 20px;
 }
-.add-checkbox-labels>label{
-    display: block;
-    padding-left: 5px;
+.display-books {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.add-btn-container{
-    flex-basis: 20%;
+.display-books > table {
+  margin-top: 15px;
+  flex-basis: 80%;
 }

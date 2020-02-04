@@ -1,54 +1,70 @@
-
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Library</title>
-    <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
     <div class="add-book">
-    <form>
+      <form>
         <div class="add-first-half">
-            <h1>Add a book</h1>
-            <div class="add-labels">
-                <label for="author">1 Author:</label>
-                <label for="title">2 Title:</label>
-            </div>
-            <div class="add-inputs">
-                <input type="text" name="author" id="author">
-                <input type="text" name="title" id="title">
-            </div>
+          <h2>Add a book</h2>
+          <div class="add-author">
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="author" />
+          </div>
+          <div class="add-title">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" />
+          </div>
         </div>
-        <div class="add-second half">
-            <h2>Genre</h2>
-            <div class="add-checkbox">
-                <input type="checkbox" name="comedy" id="comedy">
-                <input type="checkbox" name="sci-fi" id="sci-fi">
-                <input type="checkbox" name="drama" id="drama">
+        <div class="add-second-half">
+          <h2>Genre</h2>
+          <div class="add-checkbox">
+            <div class="check-comedy">
+              <input type="checkbox" name="comedy" id="comedy" />
+              <label for="comedy">Comedy</label>
             </div>
-            <div class="add-checkbox-labels">
-                <label for="comedy">Comedy</label>
-                <label for="sci-fi">Sci-fi</label>
-                <label for="drama">Drama</label>
+            <div class="check-sci-fi">
+              <input type="checkbox" name="sci-fi" id="sci-fi" />
+              <label for="sci-fi">Sci-fi</label>
             </div>
-            <div class="add-btn-container">
-                <button>Add</button>
+            <div class="check-drama">
+              <input type="checkbox" name="drama" id="drama" />
+              <label for="drama">Drama</label>
             </div>
+          </div>
+          <div class="add-btn-container">
+            <button>+</button>
+          </div>
         </div>
-    </form>
-</div>
-    <div class="search-book">
-        <div class="search-label"><h1>search By</h1></div>
-        <div class="dropdown">
-            <select name="search-by" id="search-by">
-                <option value="Author">Author Name</option>
-                <option value="Title">Title</option>
-            </select>
-        </div>
-        <div class="input-search"><input type="text"></div>
-        <div class="search-button-container"><button>Search</button></div>
+      </form>
     </div>
-    <div class="display-books"></div>
+    <div class="search-book">
+      <div class="search-label"><h2>Search By</h2></div>
+      <div class="dropdown">
+        <select name="search-by" id="search-by">
+          <option value="Author">Author Name</option>
+          <option value="Title">Title</option>
+        </select>
+      </div>
+      <div class="input-search"><input type="text" /></div>
+      <div class="search-button-container"><button>Search</button></div>
+    </div>
+    <div class="display-books">
+      <table cellspacing="0px" border="1">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Book name</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
     <script src="scripts/script.js"></script>
-</body>
+    <div class="display-table"></div>
+  </body>
 </html>
