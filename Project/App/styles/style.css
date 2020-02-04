@@ -54,8 +54,9 @@ h2 {
   background-color: rgb(44, 226, 28);
   border-color: green;
   font-size: 30px;
+  color: green;
 }
-.search-book {
+.search-book > form {
   border-bottom: 1px solid black;
   height: 80px;
   display: flex;
@@ -64,7 +65,7 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-.search-book > div {
+.search-book > form > div {
   margin: 0 20px;
 }
 .display-books {
