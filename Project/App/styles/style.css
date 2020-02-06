@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 .add-book {
-  height: 100px;
   border: 1px solid black;
+  height: 250px;
 }
 form {
   width: 100%;
