@@ -1,34 +1,38 @@
-let user = {
+let user = localStorage.getItem('user')
+user = JSON.parse(user)
+if(!user){
+ user = {
     headers: ['#', 'Name', 'Author', 'Genre', 'Comments'],
     books: [],
     authors: [],
-    genres: [],
-    printHeaders: function ()
+    genres: []
+}
+}
+ const printHeaders = function (user)
     {
         let tr = document.querySelector('thead>tr')
-        this.headers.map(value =>
+        user.headers.map(value =>
         {
             let th = document.createElement('th')
             th.innerText = value;
             tr.appendChild(th)
         })
     }
-}
-let Book = function (name, author, genres)
+let Book = function (title, author, genres)
 {
-    this.id = id || user.books.length + 1;
-    this.name = name;
+    this.id = user.books.length + 1;
+    this.title = title;
     this.author = author;
     this.genres = genres;
 
 }
-let defaultBook = Object.freeze({
-    id: 0,
-    name: 'default book name',
-    author: 0,
-    genres: [],
-    comments: []
-})
+// let defaultBook = Object.freeze({
+//     id: 0,
+//     name: 'default book name',
+//     author: 0,
+//     genres: [],
+//     comments: []
+// })
 const printGenres = (genres) =>
 {
     let container = document.querySelector('.add-checkbox')
@@ -45,27 +49,20 @@ let defaultGenres = Object.freeze({
     DRAMA: 'Drama',
     HORROR: 'Horror',
     COMEDY: 'Comedy',
-    SPANSKA_S: 'spanska seria',
-    TURSKA_S: 'turska seria',
+    SPANSKA_S: 'Spanska seria',
+    TURSKA_S: 'Turska seria',
     DOCUMENTARY: 'Documentary',
     THRILLER: 'Thriller',
     OTHERS: 'Others'
 })
-user.printHeaders();
-printGenres(defaultGenres);
-const refreshBooks = () =>
+const printBooks = (listOfBooks) =>
 {
     let tbody = document.querySelector('tbody')
     tbody.innerHTML = ''
-    user.books.map(book =>
+    listOfBooks.map(book =>
     {
         let tr = document.createElement('tr')
-        for (let keys in book)
-        {
-            let td = document.createElement('td')
-            td.innerText = book[keys]
-            tr.appendChild(td)
-        }
+        tr.innerHTML = `<td>${book.id}</td><td>${book.title}</td><td>${user.authors[book.author]}</td><td>${book.genres}</td>`
         tbody.appendChild(tr)
     })
 }
@@ -76,8 +73,40 @@ addBookForm.addEventListener('submit', (e) =>
     let [author, title, ...listOfGenres] = e.target.elements
     listOfGenres.pop();
     let genres = listOfGenres.filter(element => element.checked).map(element => element.value)
-    let newBook = new Book(author.value, title.value, genres)
+    let ind = user.authors.indexOf(author.value)
+    if (ind === -1)
+        {
+            ind = user.authors.length
+            user.authors.push(author.value)
+        }
+    let newBook = new Book(title.value, ind, genres)
     user.books.push(newBook)
-    refreshBooks()
+    localStorage.setItem('user',JSON.stringify(user))
+    printBooks(user.books)
 
 }, false)
+let searchBookForm = document.querySelector('.search-book-form')
+searchBookForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let [searchBy,searchInput] = e.target.elements
+    if (searchBy.value === 'Author')
+        {
+            let authorInd = []
+            user.authors.map((value,index) => {if(value.includes(searchInput.value))
+            authorInd.push(index)})
+            let searchResult = user.books.filter(value => (authorInd.indexOf(value.author)!== -1))
+            console.log(authorInd)
+            console.log(searchResult)
+            printBooks(searchResult)     
+        }
+    else
+        {
+            let searchResult = user.books.filter(value => value.title.includes(searchInput.value))
+            printBooks(searchResult)
+        }
+
+})
+
+printGenres(defaultGenres);
+printHeaders(user)
+
